@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+<head>
+	<title>Sparks Banking:ViewDetails</title>
+
+	<link rel="stylesheet" href="{% static 'banktransaction/allCustomersView.css' %}">
+    <link rel="stylesheet" href="{% static 'banktransaction/index1.css' %}">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class = "header">
+		<nav class = "navbar navbar-style">
+			<div class="container">
+				<div class = "navbar-header">
+								<a href="#">
+					<img src="{% static 'banktransaction/logo.jpeg' %}" class="logo" >
+					
+				</a>
+			</div>
+			<div>
+				<ul class = "nav navbar-nav navbar-left">
+						<li><a href="{% url 'home' %}">Home</a></li>
+					</ul>
+				</div>
+	
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+					</ul>
+				</div>
+			</div>
+		</nav>
+        <div>
+			<table class = 'form-box'>
+				<div class ='input-group' >
+					<p>
+                        <label><h3>Your AccountNo. is: {{post.accountNumbers}}</h3></label>
+                    </p>
+                    <p><label>FirstName: {{post.firstName}}</label></p>
+                    <p><label>Last Name: {{post.lastName}}</label></p>
+                    <p><label>Email: {{post.email}}</label></p>
+                    <p><label>Date Of Birth: {{post.dateOfBirth}}</label></p>
+                    <p><label>Balance: {{post.balance}}</label></p>
+                    
+
+					<a href="{% url 'transferMoney' %}"><input type="submit" class = "submit-btn" value="Transfer Money"></a>
+				</div>
+				
+			</table>
+		</div>
+</header>
+</body>
+</html>

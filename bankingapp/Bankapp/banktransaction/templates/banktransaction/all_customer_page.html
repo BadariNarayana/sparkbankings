@@ -1,0 +1,95 @@
+{% load static %}
+<html>
+<head>
+	<title>Sparks Banking:Home</title>
+
+	<link rel="stylesheet" href="{% static 'banktransaction/allCustomersView.css' %}">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class = "header">
+		<nav class = "navbar navbar-style">
+			<div class="container">
+				<div class = "navbar-header">
+								<a href="#">
+					<img src="{% static 'banktransaction/logo.jpeg' %}" class="logo" >
+					
+				</a>
+			</div>
+			<div>
+				<ul class = "nav navbar-nav navbar-left">
+						<li><a href="{% url 'home' %}">Home</a></li>
+					</ul>
+				</div>
+	
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+						
+						<li><a href="{% url 'create_your_account' %}">Create an account</a></li>
+						<li><a href="{% url 'transferMoney' %}">Transfer Money</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class = "row">
+			<div class = "col-md-3"></div>
+			<div class = "col-md-6">
+		{% if messages %}
+			{% for message in messages %}
+				{% if message.tags == 'success'%}
+					<div class = "alert alert-success">{{ message }}</div>
+				{% elif message.tags == 'error'%}
+					<div class = "alert alert-warning">{{ message }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+			</div>
+			<div class = "col-md-3"></div>
+		</div>
+		<div class = "table-box">
+		<div class = "table-row table-head">
+			<div class="table-cell first-cell">
+				<p>account No.</p>
+			</div>
+			<div class="table-cell">
+				<p>Name:</p>
+			</div>
+			<div class="table-cell">
+				<p>Current Balance:</p>
+			</div>
+			<div class="table-cell">
+				<p>_</p>
+			</div>
+		</div>
+
+		
+		{% for i in accmodels %}
+			<div class = "table-row">
+				<div class="table-cell first-cell">
+					<p>{{ i.accountNumbers }}</p>
+				</div>
+				<div class="table-cell">
+					<p>{{ i.firstName }}</p>
+				</div>
+				<div class="table-cell">
+					<p>{{ i.balance }}</p>
+				</div>
+				<div class="table-cell last-cell">
+					<p><a class="btn btn-primary" href="{% url 'account_detail' pk=i.pk %}" role="button">View Details</a></p>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+
+
+	</header>
+</body>
+</html>

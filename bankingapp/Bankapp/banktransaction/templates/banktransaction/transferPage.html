@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+<head>
+	<title>Sparks Banking:ViewDetails</title>
+
+	<link rel="stylesheet" href="{% static 'banktransaction/allCustomersView.css' %}">
+    <link rel="stylesheet" href="{% static 'banktransaction/index1.css' %}">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class = "header">
+		<nav class = "navbar navbar-style">
+			<div class="container">
+				<div class = "navbar-header">
+								<a href="#">
+					<img src="{% static 'banktransaction/logo.jpeg' %}" class="logo" >
+					
+				</a>
+			</div>
+			<div>
+				<ul class = "nav navbar-nav navbar-left">
+						<li><a href="{% url 'home' %}">Home</a></li>
+					</ul>
+				</div>
+	
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        <form action="" method="POST" >
+			{% csrf_token %}
+			<table class = "form-box">
+				<div class = "input-group">
+					<label>The account no. will be inthe form: 0xxx</label>
+					<input type="number" class="input-field" placeholder=" Your Account Number" required name = "fromAccNo">
+					<input type="number" class="input-field" placeholder="To Account Number" required name = "toAccNo">
+					<input type="number" class="input-field" placeholder="Amount" max = 1000000 min = 100 required name = "amount">
+
+					<input type="submit" class="submit-btn" value="Transfer">
+				</div>
+			</table>	
+		</form>
+
+    </header>
+</body>
+</html>

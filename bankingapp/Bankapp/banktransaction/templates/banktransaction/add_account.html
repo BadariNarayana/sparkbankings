@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+<head>
+	<title>Sparks Banking:Create Account</title>
+
+	<link rel="stylesheet" href="{% static 'banktransaction/index1.css' %}">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class = "header">
+		<nav class = "navbar navbar-style">
+			<div class="container">
+				<div class = "navbar-header">
+								<a href="#">
+					<img src="{% static 'banktransaction/logo.jpeg' %}" class="logo" >
+					
+				</a>
+			</div>
+			<div>
+				<ul class = "nav navbar-nav navbar-left">
+						<li><a href="{% url 'home' %}">Home</a></li>
+					</ul>
+				</div>
+	
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+						
+						<li><a href="{% url 'view_all_customers' %}">View all Customers</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<form action="" method="post" >
+			{% csrf_token %}
+			<table class = 'form-box'>
+				
+				<div class ='input-group' >
+					<div>
+						<input type = 'text' class = 'input-field' placeholder="First Name:" required name="firstname">
+					</div>
+					<div>
+						<input type = 'text' class = 'input-field' placeholder="Last Name:" required name="lastname">
+					</div>
+					<div>
+						<input type = 'email' class = 'input-field' placeholder="Email ID:" required name="email">
+					</div>
+					<div>
+						<input type = 'date' class = 'input-field' placeholder="Date Of Birth:" min="1999-12-31" name="dateofbirth" max="2022-01-01" required>
+					</div>
+					<div>
+						<input type = 'number' class = 'input-field' placeholder="banktransactionial Balance:" name="balance" min="500" max="1000000" required>
+					</div>
+					
+					<input type="submit" class = "submit-btn" value="Submit">
+				</div>
+				
+			</table>
+		</form>
+
+	</header>
+</body>
+</html>

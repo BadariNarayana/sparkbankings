@@ -1,0 +1,77 @@
+{% load static %}
+<html>
+<head>
+	<title>Sparks Banking:Home</title>
+
+	<link rel="stylesheet" href="{% static 'banktransaction/index1.css' %}">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class = "header">
+		<nav class = "navbar navbar-style">
+			<div class="container">
+				<div class = "navbar-header">
+
+					<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#micon">
+
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						
+					</button>
+
+				<a href="#">
+					<img src="{% static 'banktransaction/logo.jpeg' %}" class="logo" >
+					
+				</a>
+			</div>
+			<div>
+				<ul class = "nav navbar-nav navbar-left">
+						<li><a href="{% url 'home' %}">Home</a></li>
+					</ul>
+				</div>
+				<div class = "collapse navbar-collapse" id = "micon">
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href="{% url 'view_all_customers' %}">view All Customers</a></li>
+						<li><a href="{% url 'create_your_account' %}">Create an account</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<div class = "container body_1">
+			<div class = "row">
+				<div class ="col-sm-6 banner-info">
+					
+					<h1>WELCOME </h1>
+					<p class = "big-text">The sparks Banking</p>
+					<h3 class = "sub-text">Have an easy transactions</h3>
+
+					<div>
+						
+						<a href="{% url 'view_all_customers' %}" class = "btn btn-first">View All Customers</a>
+						<a href="{% url 'create_your_account' %}" class = "btn btn-second">Create an account</a>
+
+					</div>
+
+				</div>
+				<div class = "col-sm-6 banner-image">
+					
+					<img src="{% static 'banktransaction/logo.jpeg' %}" width="50%" height="50%" class = "img-responsive">
+
+				</div>	
+			</div>
+		</div>
+
+
+	</header>
+	
+</body>
+</html>
